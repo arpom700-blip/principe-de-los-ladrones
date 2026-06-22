@@ -6,6 +6,28 @@
     <title>PRÍNCIPE DE LOS LADRONES</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<section id="contenedor-libros"></section>
+
+<script>
+    fetch('libros.json')
+        .then(response => response.json())
+        .then(data => {
+            const contenedor = document.getElementById('contenedor-libros');
+            contenedor.innerHTML = '';
+
+            data.forEach(libro => {
+                const card = `
+                    <div class="libro">
+                        <img src="${libro.portada}" alt="Portada">
+                        <h3>${libro.titulo}</h3>
+                        <p>${libro.autora}</p>
+                        <a href="${libro.archivo}" download>Descargar</a>
+                    </div>
+                `;
+                contenedor.innerHTML += card;
+            });
+        });
+</script>
 
 <body>
 
