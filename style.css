@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to bottom, #000000, #3b0066);
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffb3ff;
+    text-shadow: 0 0 10px #ff66ff;
+}
+
+#buscador {
+    width: 80%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 30px;
+    border: 2px solid #ff66ff;
+    background: #1a001f;
+    color: white;
+    font-size: 1rem;
+}
+
+#filtros {
+    padding: 20px;
+}
+
+h2 {
+    color: #ff99ff;
+    margin-bottom: 10px;
+}
+
+.pill {
+    display: inline-block;
+    background: #4d0057;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pill:hover {
+    background: #ff66ff;
+}
+
+#contenedor-libros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tarjeta {
+    background: #1a001f;
+    width: 200px;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px #660066;
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff33ff;
+}
+
+.tarjeta img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.autora {
+    color: #ff99ff;
+    font-size: 0.9rem;
+}
+
+.genero {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: #660066;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.boton {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #ff33cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: #ff66ff;
+}

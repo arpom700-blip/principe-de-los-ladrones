@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRÍNCIPE DE LOS LADRONES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>👑 PRÍNCIPE DE LOS LADRONES</h1>
+    <input type="text" id="buscador" placeholder="Buscar libros, autoras o géneros...">
+</header>
+
+<section id="filtros">
+    <h2>🌸 Géneros</h2>
+    <div id="lista-generos"></div>
+
+    <h2>💜 Autoras</h2>
+    <div id="lista-autores"></div>
+</section>
+
+<section id="libros">
+    <h2>📚 Libros disponibles</h2>
+    <div id="contenedor-libros"></div>
+</section>
+
+<script>
+    let libros = [];
+
+    async function cargarLibros() {
+        const res = await fetch("libros.json");
+        libros = await res.json();
+        mostrarLibros(libros);
+        cargarFiltros(libros);
+    }
+
+    function mostrarLibros(lista) {
+        const cont = document.getElementById("contenedor-libros");
+        cont.innerHTML = "";
+
+        lista.forEach(libro => {
+            cont.innerHTML += `
+                <div class="tarjeta">
+                    <img src="${libro.portada}" alt="Portada">
+                    <h3>${libro.titulo}</h3>
+                    <p class="autora">💗 ${libro.autor}</p>
+                    <span class="genero">${libro.genero}</span>
+                    <a class="boton" href="${libro.descarga}" target="_blank">⬇ Descargar</a>
+                </div>
+            `;
+        });
+    }
+
+    function cargarFiltros(lista) {
+        const generos = [...new Set(lista.map(l => l.genero))];
+        const autoras = [...new Set(lista.map(l => l.autor))];
+
+        document.getElementById("lista-generos").innerHTML =
+            generos.map(g => `<span class="pill" onclick="filtrarGenero('${g}')">${g}</span>`).join("");
+
+        document.getElementById("lista-autores").innerHTML =
+            autoras.map(a => `<span class="pill" onclick="filtrarAutora('${a}')">${a}</span>`).join("");
+    }
+
+    function filtrarGenero(g) {
+        mostrarLibros(libros.filter(l => l.genero === g));
+    }
+
+    function filtrarAutora(a) {
+        mostrarLibros(libros.filter(l => l.autor === a));
+    }
+
+    document.getElementById("buscador").addEventListener("input", e => {
+        const texto = e.target.value.toLowerCase();
+        mostrarLibros(libros.filter(l =>
+            l.titulo.toLowerCase().includes(texto) ||
+            l.autor.toLowerCase().includes(texto) ||
+            l.genero.toLowerCase().includes(texto)
+        ));
+    });
+
+    cargarLibros();
+</script>
+
+</body>
+</html>
