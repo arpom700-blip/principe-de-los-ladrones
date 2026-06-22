@@ -5,5 +5,26 @@
         "genero": "Romance",
         "portada": "https://via.placeholder.com/200x300?text=Portada",
         "archivo": "Cuatro destinos y una Nochebuena - Cherry Chic.pdf"
+    },
+    {
+        "titulo": "The Wolf's Appetite",
+        "autora": "Jennika Snow",
+        "genero": "Romance",
+        "portada": "https://via.placeholder.com/200x300?text=Portada",
+        "archivo": "The Wolf's Appetite - Jennika Snow.pdf"
+    },
+    {
+        "titulo": "Bajo juramento",
+        "autora": "Stephania Daniel",
+        "genero": "Romance",
+        "portada": "https://via.placeholder.com/200x300?text=Portada",
+        "archivo": "Bajo juramento - Stephania Daniel.pdf"
+    },
+    {
+        "titulo": "La Ascensión es Húmeda",
+        "autora": "Desconocido",
+        "genero": "Romance",
+        "portada": "https://via.placeholder.com/200x300?text=Portada",
+        "archivo": "La Ascensión es Húmeda.pdf"
     }
 ]
